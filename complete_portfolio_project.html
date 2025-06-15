@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+<style>
+/* General Styles */
+body {
+    background: linear-gradient(to right, #a8edea, #fed6e3);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    color: #444;
+    border-bottom: 1px solid #ccc;
+
+    padding: 10px;
+    z-index: 999;
+    text-shadow: #e9c8a9;
+    text-transform: none;
+}
+
+nav a {
+    color: #2e2e2e;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff6b6b; /* Coral Red for hover */
+}
+
+
+/* Main Content */
+.container {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(236, 229, 229);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Content Box */
+.content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.8rem;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #e9c8a9;
+}
+
+section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.about-me img {
+    width: 150px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.about-me {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #eee ;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: #eee;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 999;
+  padding-top: 60px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+#modalCaption {
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+ul li {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+ul li:hover {
+  color: #ff6b6b;
+}
+
+</style>
+</head>
+  <body>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#dashboard">Dashboard</a>
+    </nav>
+  <div style="height: 60px;"></div>
+
+    <div class="container" id="home">
+      <div class="content">
+      <h1>I'm Chinna Ramireddy</h1>
+      <p>Passionate about networking and development</p>
+        <div class="social-icons">
+        <a href="https://www.instagram.com/chinna.ramireddy.73/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/chinna.ramireddy.73/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/v-chinna-rami-reddy-016391248/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/ChinnaRamireddy73" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+
+   <section id="about">
+  <h2>About Me</h2>
+  <div class="content">
+    <div class="about-me">
+      <img src="WhatsApp Image 2025-06-10 at 07.07.50_b1d628a5.JPG" alt="Chinna Rami Reddy" />
+      <div>
+        <h3>Hi, I'm V. Chinna Rami Reddy</h3>
+        <p>
+          I'm a dedicated and curious software developer with a deep interest in how technology works. I thrive on building real-world solutions, solving problems on platforms like LeetCode, and continuously pushing my boundaries through hands-on projects and learning.
+        </p>
+      </div>
+
+      <h3>My Journey</h3>
+      <p>
+        I began my academic path at Z.P.H.S Bandlapalli, then earned a diploma from Govt Polytechnic Vempalli with a scholarship. Currently, I’m pursuing a Bachelor of Technology in Computer Science & Engineering (CSM) at VVIT Guntur, where I’ve been sharpening my technical and problem-solving skills.
+      </p>
+
+      <h3>Personal Interests</h3>
+      <p>
+        Outside the world of coding, I enjoy watching inspiring films, listening to music, and reflecting on philosophical topics. These hobbies fuel my creativity and keep me balanced.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <div class="content">
+        <div class="cards">
+          <div class="card">
+            <div class="certificates">
+              <h3>Internships</h3>
+              <ul>
+                <li onclick="openModal('1000467882.jpg', 'Juniper Networking Internship')">Juniper Networking Internship</li>
+                <li onclick="openModal('1000467879.jpg', 'Ethical Hacking')">Ethical Hacking</li>
+                <li onclick="openModal('1000467363.jpg', 'Full Stack Internship (EduSkills)')">Full Stack Internship (EduSkills)</li>
+                  
+              </ul>
+
+            </div>
+
+            <!-- Modal Popup -->
+            <div id="certificateModal" class="modal">
+              <span class="close" onclick="closeModal()">&times;</span>
+              <img class="modal-content" id="modalImage">
+              <div id="modalCaption"></div>
+            </div>
+            <script>
+            function openModal(imageSrc, caption) {
+              document.getElementById("certificateModal").style.display = "block";
+              document.getElementById("modalImage").src = imageSrc;
+              document.getElementById("modalCaption").innerText = caption;
+            }
+
+            function closeModal() {
+              document.getElementById("certificateModal").style.display = "none";
+            }
+            </script>
+          </div>
+          <div class="card">
+            <H3>Certificates</H3>
+            <ul>
+              <li onclick="openModal('1000467882.jpg', 'java')">Java</li>
+              <li onclick="openModal('Deep Learning - IIT Ropar_page-0001.jpg', 'Deep Learning')">Deep Learning</li>
+              <li onclick="openModal('1000467881.jpg', 'L4G ')">L4G</li>
+              <li onclick="openModal('1000467880.jpg', 'HTML & CSS')">HTML & CSS</li>
+              
+            </ul>
+            
+          </div>
+          <div class="card">
+            <div class="awards">
+              <h3>Awards</h3>
+              <ul>
+                <li>Shotput Winner</li>
+                <li>Discus Throw Winner</li>
+                <li>Javelin Throw Winner</li>
+                <li>Runner-up in JAM</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section id="dashboard">
+  <h2>Dashboard</h2>
+  <div class="content">
+  <div class="cards">
+  <div class="card">
+  <h3>Projects</h3>
+  <h5>Working On</h5>
+  <ul>
+  <li>AYUSH Registration</li>
+  <li>Smart Classroom</li>
+  </ul>
+  <h5>Completed</h5>
+  <ul>
+  <li>Portfolio Website</li>
+  </ul>
+  </div>
+  <div class="card">
+  <h3>Academics</h3>
+  <ul>
+  <li>B.Tech (3rd Year) at VVIT</li>
+  <li>Diploma: Govt Vempalli (82%)</li>
+  <li>SSC: ZPHS Bandlapalli (9.2 GPA)</li>
+  </ul>
+  </div>
+  <div class="card">
+  <h3>Practice</h3>
+  <p>63 problems solved on LeetCode</p>
+  </div>
+  </div>
+  </div>
+
+
+
+  <div class="footer">
+  <p>© 2024 Chinna Rami Reddy. All rights reserved.</p>
+  </div>
+  </section>
+  </body>
+</html>
