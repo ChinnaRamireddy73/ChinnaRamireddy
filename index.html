@@ -12,7 +12,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    
 }
+#home {
+    background-image: url("bg3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
 
 /* Navigation */
 nav {
@@ -20,26 +29,57 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #ffffff;
-    color: #444;
-    border-bottom: 1px solid #ccc;
-
-    padding: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px 30px;
     z-index: 999;
-    text-shadow: #e9c8a9;
-    text-transform: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eaeaea;
 }
 
 nav a {
-    color: #2e2e2e;
+    color: #2c2c2c;
+    font-weight: 600;
     text-decoration: none;
-    margin-right: 15px;
+    position: relative;
+    padding: 8px 10px;
     transition: color 0.3s ease;
+    font-size: 16px;
+}
+
+/* Hover underline animation */
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 0;
+    height: 2px;
+    background-color: #ff6b6b;
+    transition: width 0.3s ease;
 }
 
 nav a:hover {
-    color: #ff6b6b; /* Coral Red for hover */
+    color: #ff6b6b;
 }
+
+nav a:hover::after {
+    width: 80%;
+    left: 10%;
+}
+nav a.active {
+    color: #ff6b6b;
+}
+
+nav a.active::after {
+    width: 80%;
+}
+
+
 
 
 /* Main Content */
@@ -187,7 +227,18 @@ ul li:hover {
       <a href="#achievements">Achievements</a>
       <a href="#dashboard">Dashboard</a>
     </nav>
-  <div style="height: 60px;"></div>
+    <script>
+      const navLinks = document.querySelectorAll("nav a");
+
+      navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+      navLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+         });
+         });
+    </script>
+
+      <div style="height: 60px;"></div>
 
     <div class="container" id="home">
       <div class="content">
