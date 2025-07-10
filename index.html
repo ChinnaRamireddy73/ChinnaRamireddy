@@ -6,7 +6,6 @@
 <title>Portfolio</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
 <style>
-/* General Styles */
 body {
     background: linear-gradient(to right, #a8edea, #fed6e3);
     margin: 0;
@@ -134,8 +133,11 @@ nav a.active::after {
 
 section {
     padding: 60px 20px;
-    max-width: 900px;
-    margin: auto;
+    max-width: 950px;
+    margin: 40px auto;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #fdf6e3 80%, #e0c3fc 100%);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 
 .about-me img {
@@ -152,20 +154,65 @@ section {
     color: #eee ;
 }
 
+/* Richer Card Styles */
+.card {
+    background: linear-gradient(135deg, #f8fafc 60%, #e0c3fc 100%);
+    padding: 24px;
+    border-radius: 14px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eaeaea;
+    position: relative;
+}
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.22);
+    z-index: 2;
+}
+
 .cards {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.card {
-    background: #eee;
-    padding: 20px;
+/* Resume Section */
+#resume-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(120deg, #e0c3fc 60%, #fdf6e3 100%);
+    margin-bottom: 40px;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 50px 20px;
+}
+#resume-section h2 {
+    margin-bottom: 18px;
+    color: #4b2e83;
+}
+.resume-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(90deg, #4b2e83 60%, #ff6b6b 100%);
+    border: none;
     border-radius: 8px;
-    flex: 1;
-    min-width: 250px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(75,46,131,0.12);
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+.resume-btn:hover {
+    background: linear-gradient(90deg, #ff6b6b 60%, #4b2e83 100%);
+    transform: scale(1.05);
 }
 
+/* Footer */
 .footer {
     text-align: center;
     padding: 20px;
@@ -173,87 +220,135 @@ section {
     color: white;
 }
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 999;
-  padding-top: 60px; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-}
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
 
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 80%;
-  border-radius: 10px;
-}
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90vw;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      background: #fff;
+      object-fit: contain;
+    }
 
-#modalCaption {
-  text-align: center;
-  color: #fff;
-  margin-top: 10px;
-  font-size: 1.2em;
-}
+    #modalCaption {
+      text-align: center;
+      color: #fff;
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
 
-.close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: white;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 ul li {
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
+/* Remove hover color for all li elements */
 ul li:hover {
-  color: #ff6b6b;
+  color: inherit !important;
+  background: none !important;
+  cursor: default;
 }
+
+/* Keep hover effect for links */
+a:hover, ul li a:hover {
+  color: #ff6b6b !important;
+  background: none !important;
+  cursor: pointer;
+}
+
+/* Only allow hover color for Internships and Certificates cards */
+.card .certificates ul li:hover,
+.card h3 + ul li:hover {
+  color: #ff6b6b !important;
+  background: none !important;
+  cursor: pointer;
+}
+.about-card {
+  background: #ffffffcc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.about-card ul.no-hover-effect li:hover {
+  color: inherit !important;
+  background: none !important;
+  cursor: default;
+}
+
+.about-card ul.no-hover-effect li {
+  transition: none !important;
+  padding: 6px 0;
+  list-style: none;
+  margin-left: 0;
+  font-size: 16px;
+}
+
 
 </style>
 </head>
   <body>
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#dashboard">Dashboard</a>
-    </nav>
-    <script>
-      const navLinks = document.querySelectorAll("nav a");
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#dashboard">Dashboard</a>
+  </nav>
 
-      navLinks.forEach(link => {
+  <script>
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
       link.addEventListener("click", () => {
-      navLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-         });
-         });
-    </script>
+        navLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+      });
+    });
+  </script>
 
-      <div style="height: 60px;"></div>
+  <div style="height: 60px;"></div>
 
-    <div class="container" id="home">
-      <div class="content">
+  <!-- Home -->
+  <div class="container" id="home">
+    <div class="content">
       <h1>I'm Chinna Ramireddy</h1>
       <p>Passionate about networking and development</p>
-        <div class="social-icons">
+      <div class="social-icons">
         <a href="https://www.instagram.com/chinna.ramireddy.73/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.facebook.com/chinna.ramireddy.73/" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.linkedin.com/in/v-chinna-rami-reddy-016391248/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/ChinnaRamireddy73" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
       </div>
     </div>
+  </div>
 
-   <section id="about">
+  <!-- About -->
+ <section id="about">
   <h2>About Me</h2>
   <div class="content">
     <div class="about-me">
@@ -261,120 +356,141 @@ ul li:hover {
       <div>
         <h3>Hi, I'm V. Chinna Rami Reddy</h3>
         <p>
-          I'm a dedicated and curious software developer with a deep interest in how technology works. I thrive on building real-world solutions, solving problems on platforms like LeetCode, and continuously pushing my boundaries through hands-on projects and learning.
+          I’m a passionate and inquisitive software developer with a strong drive to understand how technology works at its core. I enjoy building real-world solutions, tackling algorithmic challenges on platforms like LeetCode, and continuously expanding my skills through hands-on projects and active learning.
         </p>
+
+        <h3>My Journey</h3>
+        <p>
+          I began my academic path at Z.P.H.S Bandlapalli, then earned a diploma from Govt Polytechnic Vempalli with a scholarship. Currently, I’m pursuing a Bachelor of Technology in Computer Science & Engineering (CSM) at VVIT Guntur, where I’ve been sharpening my technical and problem-solving skills.
+        </p>
+
+        <h3>Personal Interests</h3>
+        <p>
+          Beyond coding, I’m passionate about films, music, and exploring philosophical ideas. These interests inspire my creativity, broaden my perspective, and help me stay mentally balanced and curious.
+        </p>
+        <h3>Hobbies</h3>
+          <ul>
+            <li>Watching films and analyzing storytelling</li>
+            <li>Listening to music </li>
+            <li>Exploring philosophical ideas and reflective thinking</li>
+            <li>Solving coding challenges on platforms like LeetCode</li>
+          </ul>
+
       </div>
-
-      <h3>My Journey</h3>
-      <p>
-        I began my academic path at Z.P.H.S Bandlapalli, then earned a diploma from Govt Polytechnic Vempalli with a scholarship. Currently, I’m pursuing a Bachelor of Technology in Computer Science & Engineering (CSM) at VVIT Guntur, where I’ve been sharpening my technical and problem-solving skills.
-      </p>
-
-      <h3>Personal Interests</h3>
-      <p>
-        Outside the world of coding, I enjoy watching inspiring films, listening to music, and reflecting on philosophical topics. These hobbies fuel my creativity and keep me balanced.
-      </p>
     </div>
-  </div>
 </section>
 
 
-    <section id="achievements">
-      <h2>Achievements</h2>
-      <div class="content">
-        <div class="cards">
-          <div class="card">
-            <div class="certificates">
-              <h3>Internships</h3>
-              <ul>
-                <li onclick="openModal('1000467882.jpg', 'Juniper Networking Internship')">Juniper Networking Internship</li>
-                <li onclick="openModal('1000467879.jpg', 'Ethical Hacking')">Ethical Hacking</li>
-                <li onclick="openModal('1000467363.jpg', 'Full Stack Internship (EduSkills)')">Full Stack Internship (EduSkills)</li>
-                  
-              </ul>
-
-            </div>
-
-            <!-- Modal Popup -->
-            <div id="certificateModal" class="modal">
-              <span class="close" onclick="closeModal()">&times;</span>
-              <img class="modal-content" id="modalImage">
-              <div id="modalCaption"></div>
-            </div>
-            <script>
-            function openModal(imageSrc, caption) {
-              document.getElementById("certificateModal").style.display = "block";
-              document.getElementById("modalImage").src = imageSrc;
-              document.getElementById("modalCaption").innerText = caption;
-            }
-
-            function closeModal() {
-              document.getElementById("certificateModal").style.display = "none";
-            }
-            </script>
-          </div>
-          <div class="card">
-            <H3>Certificates</H3>
-            <ul>
-              <li onclick="openModal('1000467882.jpg', 'java')">Java</li>
-              <li onclick="openModal('Deep Learning - IIT Ropar_page-0001.jpg', 'Deep Learning')">Deep Learning</li>
-              <li onclick="openModal('1000467881.jpg', 'L4G ')">L4G</li>
-              <li onclick="openModal('1000467880.jpg', 'HTML & CSS')">HTML & CSS</li>
-              
-            </ul>
-            
-          </div>
-          <div class="card">
-            <div class="awards">
-              <h3>Awards</h3>
-              <ul>
-                <li>Shotput Winner</li>
-                <li>Discus Throw Winner</li>
-                <li>Javelin Throw Winner</li>
-                <li>Runner-up in JAM</li>
-              </ul>
-            </div>
-          </div>
+  <!-- Achievements -->
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="content">
+      <div class="cards">
+        <div class="card">
+          <h3>Internships</h3>
+          <ul>
+            <li onclick="openModal('1000467882.jpg', 'Juniper Networking Internship')">Juniper Networking Internship</li>
+            <li onclick="openModal('1000467879.jpg', 'Ethical Hacking')">Ethical Hacking</li>
+            <li onclick="openModal('1000467363.jpg', 'Full Stack Internship')">Full Stack Internship</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Certificates</h3>
+          <ul>
+            <li onclick="openModal('1000467882.jpg', 'Java')">Java</li>
+            <li onclick="openModal('Deep Learning - IIT Ropar_page-0001.jpg', 'Deep Learning')">Deep Learning</li>
+            <li onclick="openModal('1000467881.jpg', 'L4G')">L4G</li>
+            <li onclick="openModal('1000467880.jpg', 'HTML & CSS')">HTML & CSS</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Awards</h3>
+          <ul>
+            <li>Shotput Winner</li>
+            <li>Discus Throw Winner</li>
+            <li>Javelin Throw Winner</li>
+            <li>Runner-up in JAM</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <!-- Dashboard -->
   <section id="dashboard">
-  <h2>Dashboard</h2>
-  <div class="content">
-  <div class="cards">
-  <div class="card">
-  <h3>Projects</h3>
-  <h5>Working On</h5>
-  <ul>
-  <li>AYUSH Registration</li>
-  <li>Smart Classroom</li>
-  </ul>
-  <h5>Completed</h5>
-  <ul>
-  <li>Portfolio Website</li>
-  </ul>
-  </div>
-  <div class="card">
-  <h3>Academics</h3>
-  <ul>
-  <li>B.Tech (3rd Year) at VVIT</li>
-  <li>Diploma: Govt Vempalli (82%)</li>
-  <li>SSC: ZPHS Bandlapalli (9.2 GPA)</li>
-  </ul>
-  </div>
-  <div class="card">
-  <h3>Practice</h3>
-  <p>63 problems solved on LeetCode</p>
-  </div>
-  </div>
-  </div>
+    <h2>Dashboard</h2>
+    <div class="content">
+      <div class="cards">
+        <div class="card">
+          <h3>Projects</h3>
+          <h5>Working On</h5>
+          <ul>
+            <li>AYUSH Registration</li>
+            <li>Smart Classroom</li>
+          </ul>
+          <h5>Completed</h5>
+          <ul>
+            <li>Portfolio Website</li>
+            <li>E-Commerce Website</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Academics</h3>
+          <ul>
+            <li>B.Tech (3rd Year) at VVIT</li>
+            <li>Diploma: Govt Vempalli (82%)</li>
+            <li>SSC: ZPHS Bandlapalli (9.2 GPA)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Practice</h3>
+          <p>63 problems solved on LeetCode</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Resume -->
+  <section id="resume-section">
+    <h2>Resume</h2>
+    <p>Download my latest resume to know more about my skills, experience, and achievements.</p>
+    <a class="resume-btn" href="ChinnaRamireddy_resume.pdf" download>
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+  </section>
 
+  <!-- Modal Global Placement -->
+  <div id="certificateModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="modalCaption"></div>
+  </div>
 
   <div class="footer">
-  <p>© 2024 Chinna Rami Reddy. All rights reserved.</p>
+    <p>© 2024 Chinna Rami Reddy. All rights reserved.</p>
   </div>
-  </section>
+
+  <script>
+    function openModal(imageSrc, caption) {
+      const modal = document.getElementById("certificateModal");
+      const modalImg = document.getElementById("modalImage");
+      const modalCaption = document.getElementById("modalCaption");
+
+      modal.style.display = "block";
+      modalImg.src = imageSrc;
+      modalCaption.innerText = caption;
+    }
+
+    function closeModal() {
+      document.getElementById("certificateModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("certificateModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
   </body>
 </html>
